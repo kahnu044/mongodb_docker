@@ -100,6 +100,25 @@ ports:
    - 172.16.24.26:27018:27017
 ```
 
+### Database import and export:
+
+If you want to import your existing database(dump folder) then follow the below command.
+
+```bash
+mongorestore --host <hostname> --port <port> --db <database> <dump_folder_path> --drop
+
+# Example
+mongorestore --host localhost --port 27018 --db my_database ./my_mongo_dump/ --drop
+```
+Check the below command for exporting database dump.
+
+```bash
+mongodump --host <hostname> --port <port> --db <database> --out <output_folder_path>
+
+# Example
+mongodump --host localhost --port 27017 --db my_database --out ./dump/
+```
+
 ### Container Name:
 
 The container is named `kahnu_mongodb_container` by default. You can change it by editing the `container_name` field in `docker-compose.yml`.
